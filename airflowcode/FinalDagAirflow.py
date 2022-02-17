@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 import DagEmrSparkLivy as emr
 import pandas as pd
  
-#Function for reading the config file
+#Function for reading config file
 def config_data(**kwargs):
 	app_config_path=kwargs['dag_run'].conf['app_config_path']
 	path_list=app_config_path.replace(":","").split("/")
@@ -19,7 +19,7 @@ def config_data(**kwargs):
 	json_data=json.loads(data)
 	return json_data
 
-#Function for copying data from the source ---> destination
+#Function for copying data from source->destination
 def copy_data(**kwargs):
 	ti=kwargs['ti']
 	jsonData=ti.xcom_pull(task_ids='config_data')
