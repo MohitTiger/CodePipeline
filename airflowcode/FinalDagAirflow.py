@@ -87,7 +87,7 @@ def post_validation(**kwargs):
     df_stagingzone = pq.ParquetDataset(jsonData['masked-dataset']['destination']['data-location']+("/".join(dataset_path.split("/")[:len(dataset_path.split("/"))-1])), filesystem=s3).read_pandas().to_pandas()
     
     
-    # Availability check
+    # Availability checkk
     
     if df_stagingzone[df_stagingzone.columns[0]].count() != 0: # df.columns[0] = 1st column
         # Count check
