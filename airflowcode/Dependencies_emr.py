@@ -70,7 +70,7 @@ def get_cluster_dns(cluster_id):
 def wait_for_cluster_creation(cluster_id):
     emr.get_waiter('cluster_running').wait(ClusterId=cluster_id)
 
-#Livy
+#function for Livy
 def livy_task(master_dns):
     # 8998 is the port on which the Livy server runs
     host = 'http://' + master_dns + ':8998'
