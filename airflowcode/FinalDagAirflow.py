@@ -97,7 +97,7 @@ def post_validation(**kwargs):
             else:
                 raise ValueError("Count mismatch for", str(raw_columnname))
                 
-        # Datatype validation
+        # Data type validation
         for i in jsonData['masked-dataset']['transformation-cols']:
             if jsonData['masked-dataset']['transformation-cols'][i].split(',')[0] == "DecimalType":
                 if isinstance(df_stagingzone[i][0],decimal.Decimal) & (str(abs(decimal.Decimal(df_stagingzone[i][0]).as_tuple().exponent)) == jsonData['masked-dataset']['transformation-cols'][i].split(',')[1]):
