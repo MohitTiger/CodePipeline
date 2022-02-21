@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 import DagEmrSparkLivy as emr
 import pandas as pd
  
-#Function for reading the config file
+#Function for reading config file
 def config_data(**kwargs):
 	app_config_path=kwargs['dag_run'].conf['app_config_path']
 	path_list=app_config_path.replace(":","").split("/")
@@ -19,7 +19,7 @@ def config_data(**kwargs):
 	json_data=json.loads(data)
 	return json_data
 
-#Function for copying data from the source --> destination
+#Function for copying data from source->destination
 def copy_data(**kwargs):
 	ti=kwargs['ti']
 	jsonData=ti.xcom_pull(task_ids='config_data')
@@ -42,7 +42,7 @@ def copy_data(**kwargs):
 		Key=DESTINATION_KEY
 		)
 		
-#Function for pre-validation		
+#Function for pre validation		
 def pre_validation(**kwargs):
     ti = kwargs['ti']
     jsonData = ti.xcom_pull(task_ids='config_data')
@@ -61,7 +61,7 @@ def pre_validation(**kwargs):
     else:
         raise ValueError("No Data Available in the file")
 		
-#Function for submition of livy job to airflow		
+#Function for submitting livy job to airflow		
 def livy_submit(**kwargs):
     spark_config_path=kwargs['dag_run'].conf['spark_config_path']
     final_code_path=kwargs['dag_run'].conf['final_code_path']
@@ -113,7 +113,7 @@ def post_validation(**kwargs):
         raise ValueError("No Data Available in the file")
 
 
-#Creating the DAG and calling functions that we created		
+#Creating DAG and calling functions that we created		
 dag_args = {
     'owner': 'mohit-airflow',
     'depends_on_past': False,
