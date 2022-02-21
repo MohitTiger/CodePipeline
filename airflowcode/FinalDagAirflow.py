@@ -42,7 +42,7 @@ def copy_data(**kwargs):
 		Key=DESTINATION_KEY
 		)
 		
-#Function for pre validation		
+#Function for pre-validation		
 def pre_validation(**kwargs):
     ti = kwargs['ti']
     jsonData = ti.xcom_pull(task_ids='config_data')
