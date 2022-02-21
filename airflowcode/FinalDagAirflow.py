@@ -61,7 +61,7 @@ def pre_validation(**kwargs):
     else:
         raise ValueError("No Data Available in the file")
 		
-#Function for submitting livy job to airflow		
+#Function for submition of livy job to airflow		
 def livy_submit(**kwargs):
     spark_config_path=kwargs['dag_run'].conf['spark_config_path']
     final_code_path=kwargs['dag_run'].conf['final_code_path']
