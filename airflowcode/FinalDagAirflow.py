@@ -113,7 +113,7 @@ def post_validation(**kwargs):
         raise ValueError("No Data Available in the file")
 
 
-#Creating DAG and calling functions that we created		
+#Creating the DAG and calling functions that we created		
 dag_args = {
     'owner': 'mohit-airflow',
     'depends_on_past': False,
