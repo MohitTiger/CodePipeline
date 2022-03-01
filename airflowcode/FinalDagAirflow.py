@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 import DagEmrSparkLivy as emr
 import pandas as pd
  
-#Function for reading the config file
+#Function for reading the configuration file
 def config_data(**kwargs):
 	app_config_path=kwargs['dag_run'].conf['app_config_path']
 	path_list=app_config_path.replace(":","").split("/")
