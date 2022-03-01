@@ -19,7 +19,7 @@ def config_data(**kwargs):
 	json_data=json.loads(data)
 	return json_data
 
-#Function for copying data from the source->destination
+#Function for copying the data from the source->destination
 def copy_data(**kwargs):
 	ti=kwargs['ti']
 	jsonData=ti.xcom_pull(task_ids='config_data')
