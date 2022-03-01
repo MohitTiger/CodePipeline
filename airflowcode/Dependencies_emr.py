@@ -13,7 +13,7 @@ def get_security_group_id(group_name, region_name):
     response = ec2.describe_security_groups(GroupNames=[group_name])
     return response['SecurityGroups'][0]['GroupId']
 
-  #Function for creating cluster
+#Function for creating the cluster
 def create_cluster(region_name, cluster_name='Mohit_Cluster' + str(datetime.now()), release_label='emr-5.34.0',master_instance_type='m5.xlarge', num_core_nodes=2, core>
     emr_master_security_group_id = get_security_group_id('airflowsecuritygroup', region_name=region_name)
     emr_slave_security_group_id = emr_master_security_group_id
